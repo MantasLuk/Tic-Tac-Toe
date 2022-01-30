@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --main-color: rgb(33, 33, 93);
+    --second-color: #fff;
+}
+
+
+body{
+    background: var(--main-color);
+}
+
+.selection-box, .playboard, .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.selection-box {
+    background: var(--second-color);
+    padding: 20px 25px 25px;
+    border-radius: 7px;
+    max-width: 650px;
+    width: 100%;
+} 
+
+.selection-box.hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.selection-box header{
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.selection-box .title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.selection-box .options {
+    display: flex;
+    width: 100%;
+}
+
+.options button {
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    background: var(--main-color);
+    border-radius: 7px;
+    color: var(--second-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover, 
+.result-box .btn button:hover  {
+    transform: scale(.9);
+}
+
+.options button.playerX {
+    margin-right: 5px;
+}
+.options button.playerO {
+    margin-left: 5px;
+}
+
+.playboard {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+.playboard.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+.playboard .details {
+    background: var(--second-color);
+    padding: 10px;
+    border-radius: 7px;
+}
+.playboard .details .players{
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+.playboard .details span {
+    width: 100%;
+    color: var(--main-color);
+    border-radius: 5px;
+    padding: 7px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: default;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+.details span:first-child {
+    color: var(--second-color);
+}
+
+.details .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--main-color);
+    border-radius: 5px;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.players.active span:first-child {
+    color: var(--main-color);
+}
+.players.active span:nth-child(2) {
+    color: var(--second-color);
+}
+.players.active .slider {
+    left: 50%;
+}
+
+
+.playboard .play-area {
+    margin-top: 20px;
+}
+
+.playboard section {
+    display: flex;
+}
+
+.playboard section span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    height: 180px;
+    width: 180px;
+    background: var(--second-color);
+    border-radius: 5px;
+    font-size: 3em;
+    text-align: center;
+    line-height: 80px;
+    color: var(--main-color);
+}
+
+.far, .fas {
+    font-size: 2em;;
+}
+
+.result-box {
+    background: var(--second-color);
+    padding: 20px;
+    border-radius: 7px;
+    max-width: 450px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+.result-box.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won {
+    font-size: 1.5em;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+
+.result-box .won p {
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+.result-box .btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.result-box .btn button {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    background: var(--main-color);
+    border-radius: 7px;
+    color: var(--second-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
